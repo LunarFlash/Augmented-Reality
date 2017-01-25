@@ -166,7 +166,7 @@
 				TargetAttributes = {
 					8F7404421DCDD569009A6F0B = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = KL6NU6Q5M2;
+						DevelopmentTeam = HD5UELD683;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -341,7 +341,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KL6NU6Q5M2;
+				DEVELOPMENT_TEAM = HD5UELD683;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Places;
@@ -354,7 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KL6NU6Q5M2;
+				DEVELOPMENT_TEAM = HD5UELD683;
 				INFOPLIST_FILE = Places/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.Places;
