@@ -51,14 +51,27 @@ extension ViewController: CLLocationManagerDelegate {
           loader.loadPOIS(location: location, radius: 1000, handler: { (placesDict, error) in
             
             if let dict = placesDict {
-              print(dict)
-              
-            }
+              // google places api returned a bunch of places
+              guard let placesArray = dict.object(forKey: "results") as? [NSDictionary] else { return }
+              for placeDict in placesArray {
+                let latitude = placeDict.value(forKeyPath: "geometry.location.lat") as! CLLocationDegrees
+                let longitude = placeDict.value(forKeyPath: "geometry.location.lng") as! CLLocationDegrees
+                let reference = placeDict.object(forKey: "reference") as! String
+                let name = placeDict.object(forKey: "name") as! String
+                let address = placeDict.object(forKey: "vicinity") as! String
+                
+                let location = CLLocation(latitude: latitude, longitude: longitude)
+                let place = Place(location: location, reference: reference, name: name, address: address)
+                self.places.append(place)
+                let annotation = PlaceAnnotation(location: place.location!.coordinate, title: place.placeName)
+                DispatchQueue.main.async {  // - get main thread and add annotion to mapView
+                  self.mapView.addAnnotation(annotation)
+                }
+              }
+            } // got data
             
           })
         }
-        
-        
       }
     }
   }
