@@ -6,4 +6,9 @@
 //  Copyright © 2017 Vento. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol AnnotationViewDelegate {
+  
+}
+
