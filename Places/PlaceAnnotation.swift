@@ -3,7 +3,7 @@
 //  Places
 //
 //  Created by Yi Wang on 1/24/17.
-//  Copyright © 2017 Razeware LLC. All rights reserved.
+//  Copyright © 2017 Vento. All rights reserved.
 //
 
 import Foundation

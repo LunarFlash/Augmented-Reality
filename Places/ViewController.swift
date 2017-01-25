@@ -10,6 +10,7 @@ class ViewController: UIViewController {
   fileprivate let locationManager = CLLocationManager()
   fileprivate var startedLoadingPOIs = false
   fileprivate var places = [Place]()
+  fileprivate var arViewController: ARViewController!
   
   @IBOutlet weak var mapView: MKMapView!
   override func viewDidLoad() {
@@ -27,6 +28,12 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showARController(_ sender: Any) {
+    arViewController = ARViewController()
+    arViewController.dataSource = self
+    arViewController.maxVisibleAnnotations = 30
+    arViewController.headingSmoothingFactor = 0.05 // used to move views for the POIs about the screen. A value of 1 means there is no smoothing and if you turn your phone around views may jump from 1 position to another. Lower value means moving is animated, but views may be a bit behind the "moving" 
+    arViewController.setAnnotations(places)
+    self.present(arViewController, animated: true, completion: nil)
   }
   
 }
@@ -76,4 +83,10 @@ extension ViewController: CLLocationManagerDelegate {
     }
   }
   
+}
+
+extension ViewController: ARDataSource {
+  func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
+    
+  }
 }
