@@ -87,6 +87,16 @@ extension ViewController: CLLocationManagerDelegate {
 
 extension ViewController: ARDataSource {
   func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
-    
+    let annotationView = AnnotationView()
+    annotationView.annotation = viewForAnnotation
+    annotationView.delegate = self
+    annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+    return annotationView
+  }
+}
+
+extension ViewController: AnnotationViewDelegate {
+  func didTouch(annotationView: AnnotationView) {
+    print("Tapped view for POI: \(annotationView.titleLabel?.text)")
   }
 }
